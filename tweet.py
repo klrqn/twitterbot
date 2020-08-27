@@ -5,6 +5,7 @@ import config
 import tweepy
 import requests
 import json
+import inflect
 
 
 SEPT11DEATHS = 2977
@@ -35,7 +36,7 @@ except:
     print("Error during authentication")
     print('\n')
 
-# Daily Covid Deaths
+# Today's Daily Covid Deaths Total
 covidDeaths = json_data[0]['death']
 
 # Tweet Covid Update
@@ -46,9 +47,9 @@ covidDeaths = json_data[0]['death']
 #                   f'\n'
 #                   f'\n Great Job America!')
 
-api.update_status(f'Just a quick reminder:\n'
+print(f'Just a quick reminder:\n'
       f'Today\'s US Covid Death Total is {covidDeaths}\n'
-      f'That\'s like {"{:.0f}".format(covidDeaths / SEPT11DEATHS)} 9/11s!\n'
+      f'That\'s like {inflect.engine().number_to_words("{:.0f}".format(covidDeaths / SEPT11DEATHS))} 9/11s!\n'
       f'.\n.\n.\n'
       f'Great Job America!')
 
