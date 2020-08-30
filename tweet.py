@@ -31,7 +31,6 @@ api = tweepy.API(auth)
 # test connection
 try:
     api.verify_credentials()
-    print("Authentication OK")
 except:
     print("Error during authentication")
     print('\n')
@@ -50,7 +49,7 @@ covidDeaths = json_data[0]['death']
 print(f'Just a quick reminder:\n'
       f'Today\'s US Covid Death Total is {covidDeaths}\n'
       f'That\'s like {inflect.engine().number_to_words("{:.0f}".format(covidDeaths / SEPT11DEATHS))} 9/11s!\n'
-      f'.\n.\n.\n'
-      f'Great Job America!')
+      f'...\n'
+      f'Great Job America?')
 
 # "{:.2f}".format(a_float)
